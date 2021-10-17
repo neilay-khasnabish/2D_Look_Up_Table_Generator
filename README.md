@@ -19,3 +19,6 @@ Open source and easy to use
 5. mpl_toolkits
 6. scipy
 7. sklearn
+
+
+If you like the tool, please give it a star. :)

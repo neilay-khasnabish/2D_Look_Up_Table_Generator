@@ -3,8 +3,9 @@
 Open source and easy to use
 ![2D Look Up Table Generator](https://github.com/neilay-khasnabish/2D_Look_Up_Table_Generator/blob/main/Look_up_table_generator_2D_workflow.PNG)
 
-### **look_up_table_generator_2D.py** : The python script
-### **Look_up_table_generator_2D.ipynb** : Jupyter notebook showing the use of the script
+### Important files to run the script
+1. **look_up_table_generator_2D.py** : The python script
+2. **Look_up_table_generator_2D.ipynb** : Jupyter notebook showing the use of the script
 
 ### Output files are generated as follows:
 1. gridDataLookUpTable.txt

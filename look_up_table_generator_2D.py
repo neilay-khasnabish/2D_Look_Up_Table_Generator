@@ -4,7 +4,7 @@ Author : Neilay Khasnabish
 Date : 17/10/2021
 Description : This script analyzes data, generates 2D look up table, and compare outputs
               This script generates 2D loop up table which is compatible with 2D Simulink
-              compatible with 2D Simulink
+              look up table
 '''
 
 

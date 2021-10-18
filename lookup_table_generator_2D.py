@@ -1,10 +1,10 @@
 '''
-2D look up Table Generator
+2D lookup Table Generator
 Author : Neilay Khasnabish
 Date : 17/10/2021
-Description : This script analyzes data, generates 2D look up table, and compare outputs
-              This script generates 2D loop up table which is compatible with 2D Simulink
-              compatible with 2D Simulink
+Description : This script analyzes data, generates 2D lookup table, and compare outputs.
+              This script generates 2D loopup table which is compatible with Simulink 2D
+              lookup table
 '''
 
 
@@ -22,8 +22,8 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import AdaBoostRegressor
 
 
-# Look up table generator class
-class look_up_table_generator :
+# Lookup table generator class
+class lookup_table_generator :
     def __init__(self, dataMeasurementIP, dataMeasurementOP, tableAxesValues, dimensionTable = 2) :
         self.dimensionTable = dimensionTable
         self.dataMeasurementIP = dataMeasurementIP
@@ -61,7 +61,7 @@ class look_up_table_generator :
                     else : 
                         print('Error : Dimension of look up table must be same as columns of input data')
                 else :
-                    print('Error : Number of axes of look up table must be same as columns of input data')
+                    print('Error : Number of axes of lookup table must be same as columns of input data')
 
     def gridInterpolator(self, method = 'nearest') :
         if self.dimensionTable != 2 :
@@ -135,7 +135,7 @@ class look_up_table_generator :
                         plt.plot(opCalc, 'r')
                         plt.xlabel('Samples')
                         plt.ylabel('Magnitude')
-                        plt.legend('Measurement data', 'Output of look up table')
+                        plt.legend('Measurement data', 'Output of lookup table')
                         strTitle = ' '.join(['Validation by Nearest Neighbor Interp.', ' | MAE: ', str(maeErr), ' unit'])
                         plt.title(strTitle)
                         plt.show()
@@ -145,15 +145,15 @@ class look_up_table_generator :
                         np.savetxt(fileNew, (np.transpose(xAxis)), fmt="%f")
                         fileNew.write('\nInput2 : \n')
                         np.savetxt(fileNew, (np.transpose(yAxis)), fmt="%f")
-                        fileNew.write('\nGenerated look up table : \n')
+                        fileNew.write('\nGenerated lookup table : \n')
                         fileNew.write('[')
                         np.savetxt(fileNew, (reshapedOP), fmt="%f")
                         fileNew.write(']')
                         fileNew.close()                                
                     else :
-                        print('Error : Dimension of look up table must be same as columns of input data')
+                        print('Error : Dimension of lookup table must be same as columns of input data')
                 else :
-                    print('Error : Number of axes of look up table must be same as columns of input data')
+                    print('Error : Number of axes of lookup table must be same as columns of input data')
                     
     def linearInterpolator(self) :
             if self.dimensionTable != 2 :
@@ -228,7 +228,7 @@ class look_up_table_generator :
                             plt.plot(opCalc, 'r')
                             plt.xlabel('Samples')
                             plt.ylabel('Magnitude')
-                            plt.legend('Measurement data', 'Output of look up table')
+                            plt.legend('Measurement data', 'Output of lookup table')
                             strTitle = ' '.join(['Validation by Nearest Neighbor Interp.', ' | MAE: ', str(maeErr), ' unit'])
                             plt.title(strTitle)
                             plt.show()
@@ -238,15 +238,15 @@ class look_up_table_generator :
                             np.savetxt(fileNew, (np.transpose(xAxis)), fmt="%f")
                             fileNew.write('\nInput2 : \n')
                             np.savetxt(fileNew, (np.transpose(yAxis)), fmt="%f")
-                            fileNew.write('\nGenerated look up table : \n')
+                            fileNew.write('\nGenerated lookup table : \n')
                             fileNew.write('[')
                             np.savetxt(fileNew, (reshapedOP), fmt="%f")
                             fileNew.write(']')
                             fileNew.close()                                
                         else : 
-                            print('Error : Dimension of look up table must be same as columns of input data')
+                            print('Error : Dimension of lookup table must be same as columns of input data')
                     else :
-                        print('Error : Number of axes of look up table must be same as columns of input data')
+                        print('Error : Number of axes of lookup table must be same as columns of input data')
 
     def dtInterpolator(self, treeDepth = 10, estimatorSize = 500, learnRate = 0.001) :
             if self.dimensionTable != 2 :
@@ -332,7 +332,7 @@ class look_up_table_generator :
                             plt.plot(opCalc, 'r')
                             plt.xlabel('Samples')
                             plt.ylabel('Magnitude')
-                            plt.legend('Measurement data', 'Output of look up table')
+                            plt.legend('Measurement data', 'Output of lookup table')
                             strTitle = ' '.join(['Validation by Nearest Neighbor Interp.', ' | MAE: ', str(maeErr), ' unit'])
                             plt.title(strTitle)
                             plt.show()
@@ -342,15 +342,15 @@ class look_up_table_generator :
                             np.savetxt(fileNew, (np.transpose(xAxis)), fmt="%f")
                             fileNew.write('\nInput2 : \n')
                             np.savetxt(fileNew, (np.transpose(yAxis)), fmt="%f")
-                            fileNew.write('\nGenerated look up table : \n')
+                            fileNew.write('\nGenerated lookup table : \n')
                             fileNew.write('[')
                             np.savetxt(fileNew, (reshapedOP), fmt="%f")
                             fileNew.write(']')
                             fileNew.close()                                
                         else : 
-                            print('Error : Dimension of look up table must be same as columns of input data')
+                            print('Error : Dimension of lookup table must be same as columns of input data')
                     else :
-                        print('Error : Number of axes of look up table must be same as columns of input data')
+                        print('Error : Number of axes of lookup table must be same as columns of input data')
                   
 
 
@@ -362,16 +362,16 @@ dataMeasurementOP = pd.read_excel('Data.xlsx', 'ActualDataOutput')
 tableAxesValues = pd.read_excel('Data.xlsx', 'LookupTableAxes')
 
 # Create class
-look_up_table_class = look_up_table_generator(dataMeasurementIP, dataMeasurementOP, tableAxesValues)
+lookup_table_class = lookup_table_generator(dataMeasurementIP, dataMeasurementOP, tableAxesValues)
 
 # Check data
-look_up_table_class.checkData()
+lookup_table_class.checkData()
 
 # Grid based method : 'nearest', 'linear', 'cubic'
-look_up_table_class.gridInterpolator(method = 'nearest')
+lookup_table_class.gridInterpolator(method = 'nearest')
 
 # Linear interpolation
-# look_up_table_class.linearInterpolator()
+# lookup_table_class.linearInterpolator()
 
 # Random forest based interpolation
-# look_up_table_class.dtInterpolator(50, 250, 0.001)
+# lookup_table_class.dtInterpolator(50, 250, 0.001)

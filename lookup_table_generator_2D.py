@@ -1,9 +1,9 @@
 '''
-2D lookup Table Generator
+2D Lookup Table Generator
 Author : Neilay Khasnabish
 Date : 17/10/2021
 Description : This script analyzes data, generates 2D lookup table, and compare outputs.
-              This script generates 2D loopup table which is compatible with Simulink 2D
+              This script generates 2D lookup table which is compatible with Simulink 2D
               lookup table
 '''
 
